@@ -49,7 +49,7 @@ Các app (desktop, mobile, web) sẽ làm sau, ở repo riêng, và dùng lại 
 ## Ghi chú
 
 - File ghi âm và file model **không** được commit (xem `.gitignore`).
-- Dự án làm để học: tự viết phần lõi, dùng AI để giải thích, review và hỗ trợ phần phụ.
+- Dự án làm để học và để dùng cho nhu cầu cá nhân: tự viết phần lõi, dùng AI để giải thích, review và hỗ trợ phần phụ.
 
 ## Giấy phép
 

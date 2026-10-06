@@ -49,7 +49,7 @@ The apps (desktop, mobile, web) will come later, in separate repos, and will reu
 ## Notes
 
 - Audio files and model files are **not** committed (see `.gitignore`).
-- This is a learning project: the core is written by hand, and AI is used to explain, review and help with side tasks.
+- This is a learning project that I also use for my own needs: the core is written by hand, and AI is used to explain, review and help with side tasks.
 
 ## License
 
