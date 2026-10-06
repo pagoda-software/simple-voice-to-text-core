@@ -1,54 +1,56 @@
 # simple-voice-to-text-core
 
-Thư viện lõi chuyển giọng nói thành văn bản, chạy offline, viết bằng TypeScript. Ưu tiên tiếng Việt.
+English | [Tiếng Việt](README.vi.md)
 
-> Trạng thái: đang khởi tạo, chưa có code chạy được.
+An offline speech-to-text core library written in TypeScript. Vietnamese first.
 
-## Mục tiêu
+> Status: just getting started, no working code yet.
 
-- **Input:** file ghi âm (ưu tiên làm trước) và ghi âm trực tiếp từ mic.
-- **Output:** văn bản (đoạn văn) từ đoạn ghi âm đó.
-- Chạy bằng model offline, đoán được lời nói kể cả khi giọng không rõ.
-- Chạy được trên cả máy yếu (CPU) lẫn máy có GPU.
-- Cài đặt và thiết lập dễ dàng, sau này dùng được trên nhiều nền tảng.
+## Goals
 
-## Phạm vi của repo này
+- **Input:** an audio file (first priority) and live recording from the microphone.
+- **Output:** the text (a paragraph) transcribed from that audio.
+- Runs on an offline model and makes a best guess even when the speech is unclear.
+- Works on low-end machines (CPU) as well as machines with a GPU.
+- Easy to install and set up, and usable on multiple platforms later.
 
-Repo chỉ chứa **phần lõi xử lý**, chưa phải một app hoàn chỉnh. Lõi không tự in ra màn hình hay đọc tham số dòng lệnh; mọi thứ vào/ra đều qua hàm và giá trị trả về. Một CLI nhỏ đi kèm để chạy thử và làm ví dụ cách dùng.
+## Scope of this repo
 
-Các app (desktop, mobile, web) sẽ làm sau, ở repo riêng, và dùng lại lõi này.
+This repo only contains the **core processing logic**, not a full app. The core does not print to the screen or parse command-line arguments; everything goes in and out through functions and return values. A small CLI is included for trying things out and as an example of how to use the core.
 
-## Quyết định đã chốt
+The apps (desktop, mobile, web) will come later, in separate repos, and will reuse this core.
 
-| Mục | Lựa chọn |
+## Decisions so far
+
+| Item | Choice |
 | --- | --- |
-| Ngôn ngữ | TypeScript (JS/TS, ưu tiên TS) |
-| Giao diện đầu tiên | CLI (terminal) |
-| Nhận diện giọng nói | Model chạy offline |
-| Ngôn ngữ đầu tiên | Tiếng Việt |
-| Nền tảng thử nghiệm đầu | Windows 11 |
+| Language | TypeScript (JS/TS, TS preferred) |
+| First interface | CLI (terminal) |
+| Speech recognition | Offline model |
+| First language | Vietnamese |
+| First test platform | Windows 11 |
 
-## Lộ trình
+## Roadmap
 
-- [ ] **Bước 0:** chạy thử model bằng tay trên đoạn ghi âm 30-60 giây, so sánh chất lượng và tốc độ (CPU và GPU), chọn model và thư viện.
-- [ ] **Bước 1:** CLI nhận đường dẫn file, chuyển sang định dạng model cần, gọi model, in text ra terminal.
-- [ ] **Bước 2:** hỗ trợ file dài (chia đoạn), hiển thị tiến trình, lưu ra file `.txt`, xử lý lỗi.
-- [ ] **Bước 3:** ghi âm trực tiếp từ mic.
-- [ ] **Bước 4:** thử khử ồn và đo hiệu quả trước/sau (chỉ giữ lại nếu thật sự cải thiện).
-- [ ] **Sau này:** desktop app, mobile app, web app (nếu cần) với giao diện đơn giản, thực dụng.
+- [ ] **Step 0:** try models by hand on a 30-60 second recording, compare quality and speed (CPU vs GPU), pick the model and library.
+- [ ] **Step 1:** CLI that takes a file path, converts it to the format the model needs, runs the model and prints the text to the terminal.
+- [ ] **Step 2:** support long files (chunking), show progress, save to a `.txt` file, handle errors.
+- [ ] **Step 3:** live recording from the microphone.
+- [ ] **Step 4:** try noise reduction and measure the before/after effect (keep it only if it actually helps).
+- [ ] **Later:** desktop app, mobile app, web app (if needed) with a simple, practical interface.
 
-## Nguyên tắc thiết kế
+## Design principles
 
-- Chia phần xử lý thành các module tách biệt: đọc/chuyển đổi audio, transcriber, xuất kết quả.
-- Dễ đổi model mà không phải sửa phần còn lại.
-- Ưu tiên thư viện có binary build sẵn để người dùng không phải tự biên dịch.
-- Model tải tự động ở lần chạy đầu, có hiển thị tiến trình.
+- Split processing into separate modules: audio reading/conversion, transcriber, result output.
+- Make it easy to swap models without touching the rest of the code.
+- Prefer libraries that ship prebuilt binaries so users don't have to compile anything.
+- Download the model automatically on first run, with a progress indicator.
 
-## Ghi chú
+## Notes
 
-- File ghi âm và file model **không** được commit (xem `.gitignore`).
-- Dự án làm để học, tự viết phần lõi, dùng AI để giải thích, review và hỗ trợ phần phụ.
+- Audio files and model files are **not** committed (see `.gitignore`).
+- This is a learning project: the core is written by hand, and AI is used to explain, review and help with side tasks.
 
-## Giấy phép
+## License
 
-Chưa chọn.
+Not chosen yet.
